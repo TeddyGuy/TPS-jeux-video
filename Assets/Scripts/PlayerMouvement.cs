@@ -6,11 +6,13 @@ public class PlayerMouvement : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rb;
+    CharacterController controller;
     public float speed = 30f;
     Vector3 mouvementDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -26,10 +28,10 @@ public class PlayerMouvement : MonoBehaviour
 
     private void Move(Vector3 mouvementDirection)
     {
-        rb.MovePosition(transform.position + (mouvementDirection * speed * Time.deltaTime) );
+        controller.Move(mouvementDirection * speed * Time.deltaTime);
     }
 
     private void GetMouvementInput() {
-        mouvementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        mouvementDirection = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
     }
 }
