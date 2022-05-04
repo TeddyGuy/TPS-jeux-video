@@ -9,7 +9,11 @@ public class PlayerMouvement : MonoBehaviour
     CharacterController controller;
     public float speed = 30f;
     public float gravity = -9.81f;
-    public float jumpForce = 8f;
+
+    public float jumpForceMax = 25f;
+    public float jumpForceMin = 8f;
+    public float jumpForceChargeSpeed = 8f;
+    private float jumpForceBuiltUp;
 
     private Vector3 velocity;
 
@@ -17,6 +21,7 @@ public class PlayerMouvement : MonoBehaviour
     Vector3 mouvementDirection;
     void Start()
     {
+        jumpForceBuiltUp = 0f;
         controller = GetComponent<CharacterController>();
     }
 
@@ -33,7 +38,15 @@ public class PlayerMouvement : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space)) { Jump(); }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                ChargeJump();
+            }
+            else {
+                if (jumpForceBuiltUp > 0f) {
+                    Jump();
+                }
+            }
         }
     }
 
@@ -51,14 +64,18 @@ public class PlayerMouvement : MonoBehaviour
     }
 
     private void ApplyGravity() {
-        velocity.y = (controller.isGrounded && velocity.y < 0 ? -1f : velocity.y - gravity * -2f * Time.deltaTime ); 
+        velocity.y = (controller.isGrounded && velocity.y < 0 ? -1f : velocity.y - gravity * -2f * Time.deltaTime);
+    }
+
+    private void ChargeJump() {
+        jumpForceBuiltUp += jumpForceChargeSpeed * Time.deltaTime;
     }
 
     private void Jump() {
-        Debug.Log("Jump!");
+        var jumpForce = Mathf.Clamp(jumpForceBuiltUp, jumpForceMin, jumpForceMax);
         velocity.y = jumpForce;
+        jumpForceBuiltUp = 0f;
     }
-
     
 
     
