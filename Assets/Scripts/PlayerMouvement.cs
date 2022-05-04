@@ -15,12 +15,16 @@ public class PlayerMouvement : MonoBehaviour
     public float jumpForceChargeSpeed = 8f;
     private float jumpForceBuiltUp;
 
-    private Vector3 velocity;
+    public float dashForce = 100f;
+    public float dashTime = 0.25f;
+    public float dashCoolDownMax = 10f;
+    private float dashCoolDown;
 
-    public LayerMask groundLayer;
+    private Vector3 velocity;
     Vector3 mouvementDirection;
     void Start()
     {
+        dashCoolDown = 0;
         jumpForceBuiltUp = 0f;
         controller = GetComponent<CharacterController>();
     }
@@ -28,11 +32,12 @@ public class PlayerMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        HandleCoolDowns();
+        HandleInputs();
         Move();
         ApplyGravity();
     }
-    private void HandleInput()
+    private void HandleInputs()
     {
         GetMouvementInput();
 
@@ -46,6 +51,14 @@ public class PlayerMouvement : MonoBehaviour
                 if (jumpForceBuiltUp > 0f) {
                     Jump();
                 }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(dashCoolDown);
+            if (DashIsReady()) {
+                dashCoolDown = 0f;
+                StartCoroutine(Dash());
             }
         }
     }
@@ -76,8 +89,17 @@ public class PlayerMouvement : MonoBehaviour
         velocity.y = jumpForce;
         jumpForceBuiltUp = 0f;
     }
-    
-
-    
-    
+    private bool DashIsReady() {
+        return dashCoolDown == dashCoolDownMax;
+    }
+    private IEnumerator Dash() {
+        float start = Time.time;
+        while (Time.time < start + dashTime) {
+            controller.Move(transform.forward * dashForce * Time.deltaTime);
+            yield return null;
+        }
+    }
+    private void HandleCoolDowns() {
+        dashCoolDown = Mathf.Clamp(dashCoolDown + Time.deltaTime, 0, dashCoolDownMax);
+    }
 }
