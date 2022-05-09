@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Playground
       objectReference: {fileID: 0}
+    - target: {fileID: 9026345543916717658, guid: 772420ada5441804c99713f8af1983fd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5a410db75e0d6e4aa7ed81bab1be68d, type: 2}
     - target: {fileID: 9142566149321669793, guid: 772420ada5441804c99713f8af1983fd, type: 3}
       propertyPath: m_Convex
       value: 0
@@ -429,6 +433,10 @@ PrefabInstance:
     - target: {fileID: -6908601124904491732, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: dashForce
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -6908601124904491732, guid: 85517085caf16814091a8532e556a1a6, type: 3}
+      propertyPath: dashCoolDownMax
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6877209797507458486, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: jumpForceChargeSpeed
