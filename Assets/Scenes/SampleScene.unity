@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 400
+  fov: 50
   player: {fileID: 1248264160}
 --- !u!4 &1248264160 stripped
 Transform:

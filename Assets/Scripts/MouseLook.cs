@@ -6,6 +6,8 @@ public class MouseLook : MonoBehaviour
 {
     // Start is called before the first frame update
     public float mouseSensitivity = 400f;
+    private Camera cam;
+    public float fov = 90f;
     private Vector2 mouseDirection;
     private float xRotation;
     private float yRotation;
@@ -13,13 +15,19 @@ public class MouseLook : MonoBehaviour
     public Transform player;
     void Start()
     {
+        cam = GetComponent<Camera>();
+        cam.fieldOfView = fov;
         Cursor.lockState = CursorLockMode.Locked;
+        xRotation = 0;
+        yRotation = 0;
+        MoveCamera();
     }
 
     // Update is called once per frame
     void Update()
     {
         GetMouseDirection();
+        getRotation();
         MoveCamera();
     }
 
@@ -27,12 +35,13 @@ public class MouseLook : MonoBehaviour
         mouseDirection = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
     }
 
-    private void MoveCamera() {
+    private void getRotation() {
         xRotation -= mouseDirection.y * mouseSensitivity * Time.deltaTime;
         yRotation += mouseDirection.x * mouseSensitivity * Time.deltaTime;
-
         xRotation = Mathf.Clamp(xRotation, -xRotationMax, xRotationMax);
-        
+    }
+
+    private void MoveCamera() {
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         player.rotation = Quaternion.Euler(0, yRotation, 0);
     }
