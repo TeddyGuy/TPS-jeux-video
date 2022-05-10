@@ -24,7 +24,7 @@ public class RespawnController : MonoBehaviour
         if (other.gameObject.Equals(Player))
         {
             Debug.Log("test respawn");
-            other.gameObject.transform.position = new Vector3(0,100,0);
+            Player.transform.position = new Vector3(0f,100f, 0f);
         }
     }
 }
