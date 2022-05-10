@@ -6,9 +6,9 @@ public class PlayerJump : MonoBehaviour
 {
     Player player;
 
-    public float jumpForceMax = 25f;
+    public float jumpForceMax = 60f;
     public float jumpForceMin = 8f;
-    public float jumpForceChargeSpeed = 8f;
+    public float jumpForceChargeSpeed = 40f;
     private float jumpForceBuiltUp;
     
     // Start is called before the first frame update
@@ -29,10 +29,9 @@ public class PlayerJump : MonoBehaviour
             }
             else
             {
-                if (jumpForceBuiltUp > 0f)
-                {
-                    Jump();
-                }
+                
+                Jump();
+                
             }
         }
     }

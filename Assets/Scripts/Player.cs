@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float gravity = -9.81f;
     public Vector3 velocity;
     Vector3 mouvementDirection;
-    public float speed = 30f;
+    public float speed = 45f;
     void Start()
     {
     }

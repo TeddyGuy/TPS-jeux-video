@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6877209797507458486, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: jumpForceChargeSpeed
-      value: 15
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 793611196381096254, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: m_RootOrder
