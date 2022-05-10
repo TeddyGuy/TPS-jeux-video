@@ -109,9 +109,11 @@ GameObject:
   - component: {fileID: 1541681550533667377}
   - component: {fileID: -6908601124904491732}
   - component: {fileID: -6877209797507458486}
+  - component: {fileID: 7844440905276114632}
+  - component: {fileID: -6905408095584281781}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2483004095739819466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.15410565, z: 0, w: 0.9880544}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -163,8 +165,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: -1856423005205658507}
   gravity: -9.81
+  applyGravity: 1
   velocity: {x: 0, y: 0, z: 0}
+  mouvementDirection: {x: 0, y: 0, z: 0}
   speed: 30
+  xAxisMouvementAllowed: 1
+  zAxisMouvementAllowed: 1
 --- !u!114 &-6908601124904491732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc88b6fe48d1d74ca7377c35deb26f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 40
-  dashTime: 0.25
+  dashForce: 20
+  dashTime: 0.5
   dashCoolDownMax: 10
 --- !u!114 &-6877209797507458486
 MonoBehaviour:
@@ -192,6 +198,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0561a3391a4c85143b6a22022799336d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForceMax: 20
+  jumpForceMax: 60
   jumpForceMin: 8
-  jumpForceChargeSpeed: 8
+  jumpForceChargeSpeed: 40
+  AutoJump: 0
+--- !u!136 &7844440905276114632
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2483004095739819466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6905408095584281781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2483004095739819466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e597543c0db05cb468ab7df9870de5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallJumpForce: 15
+  getOffWallCooldown: 0.2

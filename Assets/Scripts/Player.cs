@@ -4,11 +4,14 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     public CharacterController controller;
-    
+
     public float gravity = -9.81f;
+    public bool applyGravity = true;
     public Vector3 velocity;
-    Vector3 mouvementDirection;
+    public Vector3 mouvementDirection;
     public float speed = 45f;
+    public bool xAxisMouvementAllowed = true;
+    public bool zAxisMouvementAllowed = true;
     void Start()
     {
     }
@@ -16,11 +19,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        
+        float x = (xAxisMouvementAllowed ? Input.GetAxis("Horizontal") : 0);
+        float z = (zAxisMouvementAllowed ? Input.GetAxis("Vertical") : 0);
+
         mouvementDirection = (transform.right * x) + (transform.forward * z);
+
         controller.Move(mouvementDirection * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+
+        if (applyGravity) {
+            Gravity();
+        }
+        
+    }
+
+    private void Gravity() {
         velocity.y = (controller.isGrounded ? gravity * Time.deltaTime : velocity.y - gravity * -2f * Time.deltaTime);
     }
 }

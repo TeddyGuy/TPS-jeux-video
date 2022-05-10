@@ -10,6 +10,7 @@ public class PlayerJump : MonoBehaviour
     public float jumpForceMin = 8f;
     public float jumpForceChargeSpeed = 40f;
     private float jumpForceBuiltUp;
+    public bool AutoJump = false;
     
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,12 @@ public class PlayerJump : MonoBehaviour
             }
             else
             {
-                
-                Jump();
-                
+                if (AutoJump) {
+                    Jump();
+                } 
+                else if (jumpForceBuiltUp > 0f) {
+                    Jump();
+                }
             }
         }
     }
@@ -39,7 +43,6 @@ public class PlayerJump : MonoBehaviour
     private void ChargeJump()
     {
         jumpForceBuiltUp += jumpForceChargeSpeed * Time.deltaTime;
-        Debug.Log(jumpForceBuiltUp);
     }
 
     private void Jump()
