@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RespawnController : MonoBehaviour
 {
-    public GameObject lastCheckpoint;
-    public GameObject Player;
+    public Vector3 lastCheckpoint = new Vector3(0,5,0);
+    public CharacterController controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +21,12 @@ public class RespawnController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.Equals(Player))
+        if (other.tag.Equals("Player"))
         {
             Debug.Log("test respawn");
-            Player.transform.position = new Vector3(0f,100f, 0f);
+            controller.enabled = false;
+            other.gameObject.transform.position = new Vector3(lastCheckpoint.x, lastCheckpoint.y + 5, lastCheckpoint.z);
+            controller.enabled = true;
         }
     }
 }

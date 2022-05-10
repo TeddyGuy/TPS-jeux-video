@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public GameObject player;
     public RespawnController respawnController;
     // Start is called before the first frame update
     void Start()
@@ -21,10 +20,10 @@ public class Checkpoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.Equals(player))
+        if (other.tag.Equals("Player"))
         {
             Debug.Log("test");
-            respawnController.lastCheckpoint = this.gameObject;
+            respawnController.lastCheckpoint = this.gameObject.transform.position;
         }
     }
 }

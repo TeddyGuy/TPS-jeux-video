@@ -373,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431932278624348718, guid: 7d97d1105c3c3944d9e651954d66d698, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.9
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 5431932278624348718, guid: 7d97d1105c3c3944d9e651954d66d698, type: 3}
       propertyPath: m_LocalPosition.z
@@ -908,6 +908,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2483004095739819466, guid: 85517085caf16814091a8532e556a1a6, type: 3}
   m_PrefabInstance: {fileID: 1857429233}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &763518361 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: -1856423005205658507, guid: 85517085caf16814091a8532e556a1a6, type: 3}
+  m_PrefabInstance: {fileID: 1857429233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &763518362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1036,6 +1041,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &774534754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5091121969375716763, guid: b26db8dd45ab7a04f8ff6cc7c9bb1b83, type: 3}
+  m_PrefabInstance: {fileID: 375055961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &774534760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774534754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3194c133839b7c4f90ef4d7900fe7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnController: {fileID: 0}
 --- !u!1001 &891067603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1329,6 +1352,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1316392031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1834954256935127485, guid: b26db8dd45ab7a04f8ff6cc7c9bb1b83, type: 3}
+  m_PrefabInstance: {fileID: 375055961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1316392033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316392031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3194c133839b7c4f90ef4d7900fe7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnController: {fileID: 2001749453}
 --- !u!1001 &1804353713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,11 +1468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 793611196381096254, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.71
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 793611196381096254, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 163.79
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 793611196381096254, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1471,6 +1512,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2483004095739819466, guid: 85517085caf16814091a8532e556a1a6, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483004095739819466, guid: 85517085caf16814091a8532e556a1a6, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1636,7 +1681,7 @@ Transform:
   m_GameObject: {fileID: 2001749448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -13.3, z: 52.196827}
-  m_LocalScale: {x: 300, y: 10, z: 300}
+  m_LocalScale: {x: 500, y: 10, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -1653,8 +1698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c97551ae9b58304dbff066fcd70db57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCheckpoint: {fileID: 0}
-  Player: {fileID: 763518357}
+  lastCheckpoint: {x: 0, y: 0, z: 0}
+  controller: {fileID: 763518361}
 --- !u!1 &2051252304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6245513763686963439, guid: 7d97d1105c3c3944d9e651954d66d698, type: 3}
