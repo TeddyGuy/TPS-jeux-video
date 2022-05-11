@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Playground
       objectReference: {fileID: 0}
+    - target: {fileID: 8636878959633010139, guid: 772420ada5441804c99713f8af1983fd, type: 3}
+      propertyPath: m_TagString
+      value: WallJumpable
+      objectReference: {fileID: 0}
     - target: {fileID: 9026345543916717658, guid: 772420ada5441804c99713f8af1983fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -413,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 400
+  fov: 90
   player: {fileID: 1248264160}
 --- !u!4 &1248264160 stripped
 Transform:
