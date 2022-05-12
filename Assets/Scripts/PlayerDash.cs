@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDash : MonoBehaviour
 {
     Player player;
+    public Slider cooldownSlider;
 
     public float dashForce = 100f;
     public float dashTime = 0.25f;
@@ -14,11 +16,14 @@ public class PlayerDash : MonoBehaviour
     {
         player = GetComponent<Player>();
         dashCoolDown = dashCoolDownMax;
+        cooldownSlider.maxValue = dashCoolDownMax;
+        cooldownSlider.minValue = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        cooldownSlider.value = dashCoolDown;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (DashIsReady())
