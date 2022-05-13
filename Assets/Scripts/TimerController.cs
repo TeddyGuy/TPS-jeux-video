@@ -6,7 +6,7 @@ public class TimerController : MonoBehaviour
 {
 
     float timer;
-    bool running;
+    public bool running;
     public GameObject timerDisplay;
     // Start is called before the first frame update
     void Start()
