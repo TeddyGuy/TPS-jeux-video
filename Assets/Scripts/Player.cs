@@ -36,6 +36,12 @@ public class Player : MonoBehaviour
     }
 
     private void Gravity() {
-        velocity.y = (controller.isGrounded ? gravity * Time.deltaTime : velocity.y - gravity * -2f * Time.deltaTime);
+        velocity.y = (controller.isGrounded ? gravity : velocity.y - gravity * -2f * Time.deltaTime);
+    }
+
+    public void SpawnAtBeginning() {
+        controller.enabled = false;
+        transform.position = new Vector3(0,5,0);
+        controller.enabled = true;
     }
 }

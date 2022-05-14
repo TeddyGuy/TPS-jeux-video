@@ -17,7 +17,7 @@ public class MouseLook : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         cam.fieldOfView = fov;
-        Cursor.lockState = CursorLockMode.Locked;
+        
         xRotation = 0;
         yRotation = 0;
         MoveCamera();
@@ -44,5 +44,14 @@ public class MouseLook : MonoBehaviour
     private void MoveCamera() {
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         player.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void LockCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void UnLockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 }

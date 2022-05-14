@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndGoal : MonoBehaviour
 {
     public TimerController timerController;
+    public GameObject restartBtn;
+    public MouseLook mouseLook;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,9 @@ public class EndGoal : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             timerController.running = false;
+            restartBtn.SetActive(true);
+            mouseLook.UnLockCursor();
+            mouseLook.enabled = false;
         }
     }
 }

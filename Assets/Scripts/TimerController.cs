@@ -12,6 +12,10 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         timer = 0;
+        
+    }
+
+    public void StartTimer() {
         running = true;
     }
 
@@ -28,5 +32,10 @@ public class TimerController : MonoBehaviour
         string time = minutes + ":" + seconds;
 
         timerDisplay.GetComponent<UnityEngine.UI.Text>().text = time;
+    }
+
+    public void ResetTimer()
+    {
+        timer = 0;
     }
 }

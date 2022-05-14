@@ -9,7 +9,7 @@ public class RespawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        lastCheckpoint = new Vector3(0, 5, 0);
     }
 
     // Update is called once per frame
@@ -28,5 +28,10 @@ public class RespawnController : MonoBehaviour
             other.gameObject.transform.position = new Vector3(lastCheckpoint.x, lastCheckpoint.y + 5, lastCheckpoint.z);
             controller.enabled = true;
         }
+    }
+
+    public void Reset()
+    {
+        lastCheckpoint = new Vector3(0, 5, 0);
     }
 }
